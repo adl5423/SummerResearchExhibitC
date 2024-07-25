@@ -1,33 +1,65 @@
 ```python
+"""Module docstring."""
 # main.py
 
-"""
-This module contains the main execution code for the application.
-"""
+class EmployeeManagement:
+    def __init__(self):
+        self.employees = []
 
-from employee_module import Employee
-from employee_management import EmployeeManagement
+    def add_employee(self, employee_id, name, position, salary):
+        employee = Employee(employee_id, name, position, salary)
+        self.employees.append(employee)
+
+    def remove_employee(self, emp_id):
+        for employee in self.employees:
+            if employee.id == emp_id:
+                self.employees.remove(employee)
+                return True
+        return False
+
+    def display_employees(self):
+        for employee in self.employees:
+            print(employee)
+
+    def find_employee(self, emp_id):
+        for employee in self.employees:
+            if employee.id == emp_id:
+                return employee
+        return None
+
+class Employee:
+    def __init__(self, emp_id, name, position, salary):
+        self.id = emp_id
+        self.name = name
+        self.position = position
+        self.salary = salary
+
+    def __str__(self):
+        return f"ID: {self.id}, Name: {self.name}, Position: {self.position}, Salary: ${self.salary}"
+    
+    def another_method(self):
+        return None
 
 if __name__ == "__main__":
     manager = EmployeeManagement()
 
-    # Adding employees
-    manager.add_employee(1, "John Doe", "Manager", 70000)
-    manager.add_employee(2, "Jane Smith", "Developer", 80000)
-    manager.add_employee(3, "Emily Davis", "Designer", 75000)
+    manager.add_employee(1, "John Doe", "Manager", 80000)
+    manager.add_employee(2, "Jane Smith", "Developer", 75000)
+    manager.add_employee(3, "Emily Davis", "Designer", 70000)
 
-    # Displaying employees
     manager.display_employees()
 
-    # Removing an employee
-    manager.remove_employee(2)
+    if not manager.remove_employee(2):
+        print("Employee not found!")
 
-    # Displaying employees after removal
     manager.display_employees()
 
     emp = Employee(4, "Chris Brown", "Intern", 5000)
+    
+    print(emp)
 
-    manager.remove_employee(emp.emp_id)
+    if not manager.remove_employee(4):
+        print("Employee not found!")
 
     manager.display_employees()
 ```
