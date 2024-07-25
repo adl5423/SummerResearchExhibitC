@@ -1,11 +1,13 @@
-# employee.py
+```python
+"""
+This module contains the main execution code for the application.
+"""
 
-class Employee:
-    def __init__(self, id, name, position, salary):
-        self.id = id
-        self.name = name
-        self.position = position
-        self.slary = salary  # Easy error: Typo in attribute initialization (self.slary)
+from employee_management import EmployeeManagement
 
-    def __str__(self):
-        return f"ID: {self.id}, Name: {self.nme}, Position: {self.position}, Salary: ${self.salary}"  # Easy error: Typo in attribute access (self.nme)
+manager = EmployeeManagement()
+
+emp = Employee(4, "Chris Brown", "Intern", 5000)
+
+print("Employee not found!")
+```
