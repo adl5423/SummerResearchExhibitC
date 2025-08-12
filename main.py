@@ -1,29 +1,31 @@
-# main.py
+from employee_management import EmployeeManagement, Employee
 
-from employee_management import EmployeManagement  # Easy error: Typo in import statement
-
-if __name__ == "__main__":
-    manager = EmployeeManagment()  # Easy error: Typo in class instantiation
+def main():
+    manager = EmployeeManagement()
 
     # Adding employees
-    manager.add_employee(1, "John Doe", "Manager")
-    manager.add_employee(2, "Jane Smith", "Developer")
-    manager.add_employee(3, "Emily Davis", "Designer")
+    manager.add_employee(1, "John Doe", "Manager", 90000)
+    manager.add_employee(2, "Jane Smith", "Developer", 80000)
+    manager.add_employee(3, "Emily Davis", "Designer", 70000)
 
     # Displaying employees
     manager.display_employees()
 
     # Removing an employee
-    manager.remove_emploe(2)  # Easy error: Typo in method call
+    manager.remove_employee(2)
 
     # Displaying employees after removal
-    manager.display_employs()  # Easy error: Typo in method call
+    manager.display_employees()
 
-    # Hard error: Incorrect object instantiation
-    emp = Employee(str(4), "Chris Brown", "Intern", "5000")  # id should be an int, and salary should be an int, not str
+    # Correct instantiation of an Employee (for demonstration)
+    emp = Employee(4, "Chris Brown", "Intern", 5000)
 
-    # Medium error: Logical error in remove_employee
-    manager.remove_employee(4)  # Trying to remove non-existing employee
+    # Add and then remove the new employee to demonstrate removal flow
+    manager.add_employee(4, "Chris Brown", "Intern", 5000)
+    manager.remove_employee(4)
 
-    # Medium error: Misspelled variable name
-    manager.display_employ()  # Wrong method name (should be display_employees)
+    # Final display of employees
+    manager.display_employees()
+
+if __name__ == "__main__":
+    main()
