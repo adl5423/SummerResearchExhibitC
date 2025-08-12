@@ -1,0 +1,13 @@
+{
+  "static_issues": 26,
+  "bug_desc": 0,
+  "total_sim_issues": 26,
+  "patches_generated": 35,
+  "impl_patches_generated": 0,
+  "files_changed": 3,
+  "chars_delta_total": -176,
+  "fallback_docstrings_added": 0,
+  "fallback_exceptions_annotated": 0,
+  "branch": "coniac-ai",
+  "repo": "adl5423/SummerResearchExhibitC"
+}
