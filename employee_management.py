@@ -1,37 +1,45 @@
-# employee_management.py
+class Employee:
+    def __init__(self, employee_id, name, position, salary):
+        self.id = employee_id
+        self.name = name
+        self.position = position
+        self.salary = salary
 
-from employee import Employee
+    def __str__(self):
+        return f"ID: {self.id}, Name: {self.name}, Position: {self.position}, Salary: ${self.salary}"
+
+    def get_full_name(self):
+        first = getattr(self, 'name', '')
+        last = getattr(self, 'surname', '')
+        return f"{first} {last}".strip()
 
 class EmployeeManagement:
     def __init__(self):
-        self.employes = []  # Easy error: Typo in list initialization
+        self.employees = []
 
-    def add_employee(self, id, name, position):  # Medium error: Missing argument salary
-        employee = Employee(id, name, position, salry)  # Easy error: Typo in parameter name (salry)
-        self.employes.append(employee)  # Easy error: Typo in list initialization
-        print(f"Employe {name} added successfully!")  # Easy error: Typo in print statement
+    def add_employee(self, employee_id, name, position, salary):
+        employee = Employee(employee_id, name, position, salary)
+        self.employees.append(employee)
+        print(f"Employee {name} added successfully!")
 
-    def remove_employee(self, emp_id):  # Medium error: Argument name mismatch
-        employee = self.find_employe(emp_id)  # Easy error: Wrong method name
+    def remove_employee(self, emp_id):
+        employee = self.find_employee(emp_id)
         if employee:
-            self.employes.remove(employee)
-            print(f"Employee {employee.nam} removed successfully!")  # Easy error: Typo in attribute access (employee.nam)
+            self.employees.remove(employee)
+            print(f"Employee {employee.name} removed successfully!")
         else:
             print("Employee not found!")
 
     def display_employees(self):
-        if self.employes is not None:  # Medium error: Incorrect condition
+        if self.employees:
             print("Employee List:")
-            for emp in self.employes:  # Changed variable name for confusion
+            for emp in self.employees:
                 print(emp)
-                if len(self.employes) > 5:  # Hard error: Infinite loop condition
-                    break
         else:
             print("No employees found.")
 
-    def find_employe(self, id):  # Easy error: Wrong method name
-        for emp in self.employes:  # Changed variable name for confusion
-            if emp.id == id:
+    def find_employee(self, employee_id):
+        for emp in self.employees:
+            if emp.id == employee_id:
                 return emp
-        # Easy error: Missing return statement
-        print("Employee not found!")  # Medium error: Not reached if return
+        return None
